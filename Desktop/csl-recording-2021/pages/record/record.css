@@ -1,0 +1,67 @@
+.record {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.record .nav {
+  height: 6vh;
+  padding: 2% 5% 2% 3%;
+}
+.record .countDown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}
+.record .countDown .cleBorder {
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  border: solid 2px #7f8c8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40vw;
+  color: #7f8c8d;
+}
+.record .bottomBtn {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.record .bottomBtn .startBtn {
+  border: solid 2px #2f3640;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  font-size: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record .bottomBtn .at-icon {
+  font-size: 15vw;
+}
+.record .bottomBtn .leftBtn {
+  border: solid 2px #2f3640;
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record .bottomBtn .rightBtn {
+  border: solid 2px #2f3640;
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.record .bottomBtn .at-icon-btm {
+  font-size: 9vw;
+}

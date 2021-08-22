@@ -1,0 +1,40 @@
+.videoDemo {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.videoDemo .nav {
+  height: 6vh;
+  padding: 2% 5% 2% 3%;
+}
+.videoDemo .videoContainer {
+  border: solid 2px #dcdde1;
+  height: 60vh;
+}
+.videoDemo .wordsContainer {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.videoDemo .countDown {
+  border: solid 2px red;
+  display: none;
+}
+.videoDemo .bottomBtn {
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.videoDemo .bottomBtn .startBtn {
+  border: solid 2px #2f3640;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  font-size: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
