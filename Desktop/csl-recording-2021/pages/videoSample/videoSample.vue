@@ -54,9 +54,6 @@ export default {
 
   methods: {
     torecord() {
-      // uni.redirectTo({
-      //   url: "../record/record",
-      // });
       // 处理方案 · 1
       // 手机设置定时的情况下直接调用uni.chooseVideo
       // 可以后续加一个模态框做提示
@@ -65,7 +62,7 @@ export default {
         count: 1,
         sourceType: ["camera", "album"],
         camera: "front",
-        maxDuration: 60,
+        maxDuration: 15,
         success: function (res) {
           self.src = res.tempFilePath;
         },

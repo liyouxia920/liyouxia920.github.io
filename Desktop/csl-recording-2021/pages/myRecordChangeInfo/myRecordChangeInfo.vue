@@ -104,8 +104,6 @@ export default {
         cardID: undefined,
         BCID: undefined,
         BankName: undefined,
-        // 奇怪的报错
-        isConfirm: [],
       },
       //   规则
       rules: {
@@ -219,7 +217,7 @@ export default {
     },
     handleSexValue(e) {
       this.sex = e.detail.value;
-      console.log("this.sex: ",this.sex);
+      console.log("this.sex: ", this.sex);
     },
     submitForm() {
       this.$refs.writeInfoForm
@@ -227,9 +225,6 @@ export default {
         .then((res) => {
           console.log("表单数据信息：", res);
           this.show = true;
-          //   uni.reLaunch({
-          //     url: "../index/index",
-          //   });
         })
         .catch((err) => {
           console.log("表单错误信息：", err);
@@ -239,7 +234,7 @@ export default {
       setTimeout(() => {
         this.show = false;
         uni.reLaunch({
-          url: "../login/login",
+          url: "../profile/profile",
         });
       }, 2000);
     },
@@ -249,7 +244,6 @@ export default {
 
 <style lang="less" scoped>
 .writeInfo {
-  //   border: solid 2px red;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -258,10 +252,8 @@ export default {
   .nav {
     height: 10vh;
     width: 100vw;
-    // border: solid 2px green;
   }
   .infoTitle {
-    // border: solid 2px blue;
     height: 15vh;
     width: 90vw;
     display: flex;
@@ -278,11 +270,8 @@ export default {
     padding-left: 2%;
     margin-top: 5%;
     width: 90vw;
-    // border: solid 2px green;
     .uniForms {
-      //   border: solid 1px blueviolet;
       .uniItems {
-        // border: solid 1px brown;
         margin-bottom: 20rpx;
       }
     }

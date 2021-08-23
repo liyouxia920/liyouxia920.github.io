@@ -275,7 +275,6 @@ export default {
   flex-direction: column;
   align-items: center;
   .infoTitle {
-    // border: solid 2px blue;
     height: 15vh;
     width: 90vw;
     display: flex;
@@ -292,11 +291,8 @@ export default {
     padding-left: 2%;
     margin-top: 5%;
     width: 90vw;
-    // border: solid 2px green;
     .uniForms {
-      //   border: solid 1px blueviolet;
       .uniItems {
-        // border: solid 1px brown;
         margin-bottom: 15rpx;
       }
     }

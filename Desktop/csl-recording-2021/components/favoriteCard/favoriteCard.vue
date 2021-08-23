@@ -64,7 +64,6 @@ export default {
     margin: 3% 5%;
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 14vh;
     box-shadow: 4rpx 4rpx 4rpx 2rpx rgba(0, 0, 0, 0.5);
     background-color: rgb(242, 242, 242);

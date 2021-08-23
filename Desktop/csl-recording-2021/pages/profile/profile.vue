@@ -1,30 +1,43 @@
 <template>
-  <view>
+  <view class="profile">
     <view class="top">
-      <h4>我的</h4>
-      <div class="icon">
-        <u-icon name="account" color="#2979ff" size="30"></u-icon>
-      </div>
+      <view class="title">我的</view>
+      <view>
+        <u-icon name="account" size="80" @click="switchRolesTo"></u-icon>
+      </view>
     </view>
     <view class="middle">
-      <div class="img-circle"></div>
-      <div class="flex-user-change">
-        <div class="user-name">用户名</div>
-        <div class="change-info" @click="toChangeInfo">修改基本信息&gt;</div>
-      </div>
+      <u-image width="220rpx" shape="circle" :src="src"></u-image>
+      <view class="userArea">
+        <view class="user-name">用户名</view>
+        <view class="change-info" @click="toChangeInfo">修改基本信息&gt;</view>
+      </view>
     </view>
     <view class="bottombar">
       <view class="bottom">
-        <div class="expires">
-          <p>有效工时</p>
-          <span>120min</span>
-        </div>
-        <div class="money">
-          <p>可提现</p>
-          <span>¥10</span>
-        </div>
+        <view class="expires">
+          <view>有效工时</view>
+          <view>120min</view>
+        </view>
+        <view class="money" @click="withdraw">
+          <view>可提现</view>
+          <view>¥10</view>
+        </view>
       </view>
       <button class="button_exit">退出登录</button>
+    </view>
+    <view>
+      <u-modal
+        v-model="switchRole"
+        @cancel="modalCancel"
+        @confirm="modalConfirm"
+        ref="uModal"
+        :async-close="true"
+        :show-cancel-button="true"
+        content="是否切换为学习者？"
+        :show-title="false"
+      ></u-modal>
+      <u-top-tips ref="uTips"></u-top-tips>
     </view>
   </view>
 </template>
@@ -32,87 +45,130 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      switchRole: false,
+      src: "https://cdn.uviewui.com/uview/example/fade.jpg",
+    };
   },
   methods: {
-	  toChangeInfo() {
-		  uni.navigateTo({
-		  	url:"../myRecordChangeInfo/myRecordChangeInfo"
-		  })
-	  }
+    toChangeInfo() {
+      uni.navigateTo({
+        url: "../myRecordChangeInfo/myRecordChangeInfo",
+      });
+    },
+    withdraw() {
+      uni.navigateTo({
+        url: "../withdrawRecord/withdrawRecord",
+      });
+    },
+    switchRolesTo() {
+      this.switchRole = true;
+    },
+    modalConfirm() {
+      setTimeout(() => {
+        this.switchRole = false;
+        this.$refs.uTips.show({
+          title: "已成功切换角色",
+        });
+      }, 1000);
+    },
+    modalCancel() {
+      this.switchRole = false;
+    }
   },
 };
 </script>
 
-<style scoped>
-.top {
-  display: flex;
-  justify-content: space-between;
-
-  margin: 5% 5%;
-  margin-top: 8%;
-}
-h4 {
-  font-weight: 400;
-}
-.middle {
-  display: flex;
-  height: 180px;
-  padding-bottom: 5%;
-  padding-top: 5%;
-}
-.middle .img-circle {
-  width: 25%;
-  height: 100%;
-  border: 1px solid #d7d7d7;
-  border-radius: 50%;
-  margin-left: 10%;
-  margin-right: 10%;
-}
-.middle .flex-user-change {
+<style lang="less" scoped>
+.profile {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-}
-.middle .flex-user-change .user-name {
-  font-size: 100%;
-}
-.middle .flex-user-change .change-info {
-  margin-top: 20%;
-  font-size: 80%;
-  color: #bdc3c7;
-}
-.bottombar {
-  height: 700px;
-  background-color: #f2f2f2;
-}
-.bottom {
-  display: flex;
-}
-.bottom .expires,
-.money {
-  background-color: #ffffff;
-}
-.bottom div {
-  margin: 5%;
-  width: 100%;
-  height: 25%;
-  border: 1px solid #000000;
-  border-radius: 20px;
-  padding-left: 5%;
-}
-span {
-  color: #7f7f7f;
-  font-size: 130%;
-  float: right;
-  padding-right: 20%;
-}
-p {
-  font-size: 90%;
-}
-.bottombar .button_exit {
-  margin-top: 5%;
-  width: 90%;
-  border-radius: 20px;
-  border: 1px solid #2f3640;
+  .top {
+    margin: 2% 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    padding: 3%;
+    background-color: #fff;
+    .title {
+      font-weight: bolder;
+      font-size: 1.6em;
+    }
+  }
+  .middle {
+    margin-left: 3%;
+    margin-right: 3%;
+    display: flex;
+    flex: 2;
+    padding: 3%;
+    background-color: #fff;
+    .userArea {
+      padding: 2%;
+      margin-left: 40rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .user-name {
+        font-size: 50rpx;
+        font-weight: normal;
+      }
+      .change-info {
+        font-size: 36rpx;
+        color: rgba(189, 195, 199, 1);
+      }
+    }
+  }
+  .bottombar {
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    background-color: rgba(189, 195, 199, 0.4);
+    flex: 8;
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5% 10%;
+      .expires {
+        border: solid 1px rgba(52, 73, 94, 1);
+        border-radius: 20rpx;
+        width: 36vw;
+        height: 14vh;
+        background-color: #fff;
+        padding: 2%;
+        > :nth-child(1) {
+          font-size: 40rpx;
+        }
+        > :nth-child(2) {
+          font-size: 70rpx;
+          font-weight: bolder;
+          text-align: end;
+          color: rgba(189, 195, 199, 1);
+        }
+      }
+      .money {
+        border: solid 1px rgba(52, 73, 94, 1);
+        border-radius: 20rpx;
+        width: 36vw;
+        height: 14vh;
+        background-color: #fff;
+        padding: 2%;
+        > :nth-child(1) {
+          font-size: 40rpx;
+        }
+        > :nth-child(2) {
+          font-size: 70rpx;
+          font-weight: bolder;
+          text-align: end;
+          color: rgba(189, 195, 199, 1);
+        }
+      }
+    }
+    .button_exit {
+      width: 80%;
+      margin-top: 2vh;
+    }
+  }
 }
 </style>

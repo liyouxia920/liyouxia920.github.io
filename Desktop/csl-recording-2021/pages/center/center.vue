@@ -64,13 +64,10 @@ export default {
 <style lang="less" scoped>
 .center {
   .tabSwitch {
-    // border: solid 2px blue;
     width: 50%;
     margin-top: 10rpx;
   }
-
   .switchPage {
-    // border: solid 2px blue;
     overflow: scroll;
   }
 }
