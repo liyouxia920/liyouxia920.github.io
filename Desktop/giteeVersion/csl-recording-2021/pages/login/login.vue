@@ -120,7 +120,7 @@ export default {
           title: "请输入手机号哦",
         });
       } else {
-        // 4位或6位 因为会自动调用数字键盘，所以校验位数必要性在于验空。
+        // 4位 因为会自动调用数字键盘，所以校验位数必要性在于验空。
         let codeReg = /^\d{4}$/;
         if (!codeReg.test(this.editData.code)) {
           this.loading = false;
@@ -130,7 +130,6 @@ export default {
           // 还需校验验证码数值
         } else {
           this.loading = true;
-          console.log("可以跳转了:", this.loading);
           setTimeout(() => {
             uni.reLaunch({
               url: "../index/index",

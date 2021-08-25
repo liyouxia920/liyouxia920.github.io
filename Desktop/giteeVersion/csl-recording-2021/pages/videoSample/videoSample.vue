@@ -47,6 +47,7 @@ export default {
       time: 0,
       isChecked: "",
       id: undefined,
+      videoSrc: "",
     };
   },
   components: {
@@ -60,16 +61,41 @@ export default {
       // 处理方案 · 1
       // 手机设置定时的情况下直接调用uni.chooseVideo
       // 可以后续加一个模态框做提示
-      var self = this;
-      uni.chooseVideo({
-        count: 1,
-        sourceType: ["camera", "album"],
-        camera: "front",
-        maxDuration: 15,
-        success: function (res) {
-          self.src = res.tempFilePath;
+      // var self = this;
+      // uni.chooseVideo({
+      // 	count: 1,
+      // 	sourceType: ["camera", "album"],
+      // 	camera: "front",
+      // 	maxDuration: 15,
+      // 	success: function(res) {
+      // 		self.src = res.tempFilePath;
+      // 	},
+      // });
+      // 处理方案 · 2
+      // 使用安卓SDK 倒计时固定3秒
+      const dlvideo = uni.requireNativePlugin("DLHC-AliVideo");
+      dlvideo.record(
+        {
+          minDuration: 2000,
+		//   暂时默认最大时长20s
+          maxDuration: 20000,
+          resolutionMode: 3,
+          ratioMode: 2,
+          videoQuality: "HD",
+          cameraType: 1,
+          recordMode: 0,
+          videoCodec: 0,
+          useAudio: false,
         },
-      });
+        result => {
+          //_self.tmpData = result;
+          //此处获取到视频路径后进行逻辑处理
+          this.videoSrc = result.data.videoPath;
+          uni.navigateTo({
+            url: "../record/record?videoPlaybackSrc=" + this.videoSrc,
+          });
+        }
+      );
     },
     toCenter() {
       // 只能 ==
@@ -125,6 +151,7 @@ export default {
   .videoContainer {
     border-bottom: solid 2px #bdc3c7;
     flex: 1;
+
     .signLanguageVideo {
       width: 100%;
     }

@@ -4,6 +4,22 @@
   },
   "pages": [
     {
+      "path": "pages/record/record",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/videoSample/videoSample",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/index/index",
       "style": {
         "navigationBarTitleText": "",
@@ -18,6 +34,7 @@
         "navigationStyle": "custom"
       }
     },
+
     {
       "path": "pages/center/center",
       "style": {
@@ -42,14 +59,7 @@
         "navigationStyle": "custom"
       }
     },
-    {
-      "path": "pages/record/record",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false,
-        "navigationStyle": "custom"
-      }
-    },
+
     {
       "path": "pages/selectCharacter/selectCharacter",
       "style": {
@@ -65,14 +75,7 @@
         "enablePullDownRefresh": false
       }
     },
-    {
-      "path": "pages/videoSample/videoSample",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false,
-        "navigationStyle": "custom"
-      }
-    },
+
     {
       "path": "pages/withdrawRecord/withdrawRecord",
       "style": {
@@ -87,6 +90,34 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false,
         "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/popupCancel/popupCancel",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom",
+        "backgroundColor": "transparent",
+        "app-plus": {
+          "animationType": "fade-in",
+          "background": "transparent",
+          "popGesture": "none"
+        }
+      }
+    },
+    {
+      "path": "pages/popupConfirm/popupConfirm",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom",
+        "backgroundColor": "transparent",
+        "app-plus": {
+          "animationType": "fade-in",
+          "background": "transparent",
+          "popGesture": "none"
+        }
       }
     }
   ],
